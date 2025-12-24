@@ -1,0 +1,242 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% 電子卒研論文スタイルファイル
+% 作成日：平成22年2月5日作成
+% 最終修正：令和4年12月23日
+% 作成者：電子工学科　橋本
+% バージョン: 2.0
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%%%%  用紙サイズの設定   %%%%
+\setlength\paperheight {297mm}
+\setlength\paperwidth  {210mm}
+\setlength\oddsidemargin{-3mm}
+\setlength\evensidemargin{-3mm}
+\setlength\textwidth{165mm}
+\setlength\topmargin{-17mm}
+\setlength\headheight{5mm}
+\setlength\headsep{7mm}
+\setlength\textheight{257mm}
+\setlength\baselineskip {18pt}
+\setlength\footskip{10mm}
+
+%\renewcommand{\arraystretch}{0.6}
+
+\sloppy
+
+%%%% フォントサイズの変更 %%%%%
+%\DeclareFontShape{JY1}{mc}{m}{n}{<-> s * [1.07] min10}{}
+%\DeclareFontShape{JY1}{gt}{m}{n}{<-> s * [1.07] goth10}{}
+
+\newdimen\@Q\@Q=0.25mm
+\renewcommand{\normalsize}{
+\@setfontsize\normalsize{\@xipt}{18.4pt}
+\abovedisplayskip 12.15pt \@plus3\@Q \@minus3\@Q
+%\abovedisplayskip 9.25\@Q \@plus3\@Q \@minus3\@Q
+\abovedisplayshortskip \z@ \@plus2\@Q
+\belowdisplayshortskip 3\@Q \@plus2\@Q \@minus2\@Q
+\belowdisplayskip \abovedisplayskip
+\let\@listi\@listI}
+\normalsize
+\renewcommand{\small}{%
+\@setfontsize\small{\@ixpt}{12pt}
+\abovedisplayskip 8\@Q \@plus2\@Q \@minus2\@Q
+\abovedisplayshortskip \z@ \@plus2\@Q
+\belowdisplayshortskip 3\@Q \@plus2\@Q \@minus2\@Q
+\belowdisplayskip \abovedisplayskip}
+\renewcommand{\footnotesize}{\@setfontsize\footnotesize{\@viipt}{11\@Q}}
+\renewcommand{\scriptsize}{\@setfontsize\scriptsize{\@vipt}{9\@Q}}
+\renewcommand{\tiny}{\@setfontsize\tiny{\@vpt}{7\@Q}}
+\renewcommand{\large}{\@setfontsize\large{\@xpt}{20\@Q}}
+\renewcommand{\Large}{\@setfontsize\Large{\@xiipt}{24\@Q}}
+\renewcommand{\LARGE}{\@setfontsize\LARGE{\@xivpt}{30\@Q}}
+\renewcommand{\huge}{\@setfontsize\huge{\@xviipt}{32\@Q}}
+\renewcommand{\Huge}{\@setfontsize\Huge{\@xxpt}{36\@Q}}
+
+%\renewcommand{\rmdefault}{ptm}
+%\renewcommand{\sfdefault}{phv}
+%\renewcommand{\ttdefault}{pcr}
+
+%%%%% 文字幅 %%%%%%
+\kanjiskip=0.3pt plus .4pt minus .5pt
+\xkanjiskip=0pt plus .4pt minus .5pt
+
+%
+%%%% 変数の定義 %%%%
+\def\title#1{\gdef\@title{#1}}%
+\def\author#1{\gdef\@author{#1}}%
+\def\adviser#1{\gdef\@adviser{#1}}%
+\def\year#1{\gdef\@year{#1}}%
+\long\def\abstract#1{\long\gdef\@abstract{#1}}%
+
+%%%% 表紙のスタイル %%%%
+\def\maketitle{%
+	\thispagestyle{empty}%
+	\vspace*{3cm}%
+	\begin{center}%
+		{\Huge{令 和 }}%
+		{\Huge\@year}%
+		{\Huge{ 年 度}}%
+	\end{center}
+	\vskip 1cm
+	\begin{center}%
+		{\Huge{卒 業 研 究 報 告 書}}%
+	\end{center}
+	\vskip 2cm
+	\begin{center}%
+		\Huge\bfseries\@title
+	\end{center}
+	\vfill
+	\begin{center}%
+		{\Huge
+		\begin{tabular}[t]{ll}%
+        		指導教員 & \@adviser \\
+        		報告者 & \@author \\
+        		\\
+        		報告日 & \@date \\
+		\end{tabular}}%
+	\end{center}
+	\vskip 2cm
+	\begin{center}%
+		{\Huge{神戸市立工業高等専門学校}}%
+	\end{center}
+	\begin{center}%
+		{\Huge{電子工学科}}%
+	\end{center}
+	\vspace*{1cm}
+	\newpage
+%
+%%%% abstract %%%%
+	\thispagestyle{empty}%
+	\begin{center}
+	{\LARGE\bfseries{（論文要旨）}}
+	\end{center}
+	\vskip\baselineskip
+	\@abstract
+	\newpage
+}%
+%
+%%% キャプションの定義 %%%%%
+\renewcommand{\@makecaption}[2]{%
+  \advance\leftskip5mm
+  \advance\rightskip5mm
+  \vskip\abovecaptionskip
+  \iftdir\sbox\@tempboxa{#1\hskip1zw#2}%
+    \else\sbox\@tempboxa{#1\hskip0.5zw#2}%
+  \fi
+  \ifdim \wd\@tempboxa >\hsize
+    \iftdir #1\hskip1zw#2\relax\par
+      \else #1\hskip0.5zw#2\relax\par\fi
+  \else
+    \global \@minipagefalse
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+
+  \abovecaptionskip=10pt %% 図余白
+  \belowcaptionskip=10pt
+%
+%%% 表の表罫の定義（太線） %%%%
+%%% \Hline, \Vline %%%
+\def\@arrayrule{\@addtopreamble{%
+\vrule \@width \arrayrulewidth}}
+\def\Hline{\noalign{\hrule height 1.2pt}}
+\def\Vline{\vrule width 1.2pt}
+\def\nline{\noalign{\hrule height 0.2pt}}
+
+%%% enumerate %%%
+\def\labelenumi{\arabic{enumi})}%
+%
+%%%% 参考文献の変更 %%%%
+\def\thebibliography#1{\chapter*{参考文献\markboth
+ {参考文献}{参考文献}}\list
+ {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+ \topsep 0pt \partopsep 0pt \itemsep 0pt \parsep 0pt
+ \rightmargin 0pt \listparindent 0pt \itemindent 0pt
+ \labelsep 4pt
+ \usecounter{enumi}}
+ \sloppy
+ \sfcode`\.=1000\relax}
+\let\endthebibliography=\endlist
+
+%%%%% 章の定義 %%%%%%
+\renewcommand{\@makechapterhead}[1]{%
+  {\parindent \z@ \raggedright \normalfont
+    \huge\bfseries
+    \ifnum \c@secnumdepth >\m@ne
+     \setbox\z@\hbox{\@chapapp\thechapter\@chappos\hskip1zw}%
+     \unhbox\z@\nobreak
+     \vtop{\hsize\@tempdima#1}%
+    \else
+     #1\relax
+    \fi}
+    \nobreak
+    \vskip 20\p@
+  }
+
+%%%% セクションの定義 %%%%
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+   {14.5pt \@plus.3\Cdp \@minus.2\Cdp}%
+   {0.01pt \@plus.1\Cdp}%
+   {\reset@font\normalsize\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+   {14.5pt \@plus.3\Cdp \@minus.2\Cdp}%
+   {0.01pt \@plus.1\Cdp}%
+   {\reset@font\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+   {14.5pt \@plus.3\Cdp \@minus.2\Cdp}%
+   {0.01pt \@plus.1\Cdp}%
+   {\reset@font\normalsize\bfseries}}
+
+
+%%%%%% 見出し番号を全角数字に変更 %%%%%
+\def\@arabicz#1{%
+\ifcase#1 ０\or １\or ２\or ３\or ４\or ５\or ６\or ７\or ８\or ９\or １０\or １１\or １２\or １３\or １４\or １５\or １６\or １７\or １８\or １９\or ２０\or ２１\or ２２\or ２３\or ２４\or ２５\or ２６\else\@ctrerr\fi}
+\def\arabicz#1{\expandafter\@arabicz\csname c@#1\endcsname}%
+\renewcommand{\thechapter}{\@arabicz\c@chapter}
+\renewcommand{\thesection}{\thechapter.\@arabicz\c@section}
+\renewcommand{\thesubsection}{\thesection.\@arabicz\c@subsection}
+\renewcommand{\thesubsubsection}{\thesubsection.\@arabicz\c@subsubsection}
+\renewcommand{\thefigure}{\@arabic\c@chapter.\@arabic\c@figure}
+\renewcommand{\thetable}{\@arabic\c@chapter.\@arabic\c@table}
+\renewcommand{\theequation}{\@arabic\c@chapter.\@arabic\c@equation}
+
+%%%% 図の割合 %%%
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\bottomfraction}{1.0}
+\renewcommand{\dbltopfraction}{1.0}
+\renewcommand{\textfraction}{0.01}
+\renewcommand{\floatpagefraction}{1.0}
+\renewcommand{\dblfloatpagefraction}{1.0}
+\setcounter{topnumber}{5}
+\setcounter{bottomnumber}{5}
+\setcounter{totalnumber}{10}
+
+%%%% 目次 %%%%%
+\setcounter{tocdepth}{2}
+\renewcommand{\contentsname}{－ 目 次 －}
+\renewcommand{\tableofcontents}{%
+  \if@twocolumn\@restonecoltrue\onecolumn
+  \else\@restonecolfalse\fi
+  \chapter*{
+  \vspace{-2cm}%% 目次との間隔を1cm詰める
+  \centering\contentsname
+    \@mkboth{\contentsname}{\contentsname}%
+  }%
+  \vspace{-3cm}%% 目次との間隔を1cm詰める
+  \@starttoc{toc}%
+  \if@restonecol\twocolumn\fi}
+
+%%% 目次の項目 %%%%%
+\renewcommand{\l@section}{\@dottedtocline{1}{1.5em}{2.3em}}
+\renewcommand{\l@subsection}{\@dottedtocline{2}{3.8em}{3.5em}}
+\renewcommand{\l@subsubsection}{\@dottedtocline{3}{7.0em}{4.1em}}
+
+%%% 付録の名前 %%%
+\renewcommand{\appendixname}{付録\, }
+
+%%%%%% コマンド定義 %%%%%%
+\newcommand{\C}[1]{\hfill\bfseries{}#1\hfill} % 中央寄せ用
+\newcommand{\R}[1]{\hfill\bfseries{}#1} % 右寄せ用

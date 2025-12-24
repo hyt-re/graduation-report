@@ -1,0 +1,89 @@
+\documentclass{jreport}
+% 図を取り込むためのパッケージ
+\usepackage[dvipdfmx]{graphicx}
+
+% 必要に応じてコメントアウトを外して使用するパッケージ
+%\usepackage{amsmath,amssymb} % 数式用
+%\usepackage{bm}              % 太字ベクトル用
+%\usepackage{url}             % URL参照用
+
+% 【重要】学科指定のマクロ（このファイルと同じ場所に kcctd_paper.sty が必要）
+\usepackage{kcctd_paper}
+
+%%%%% 論文情報入力エリア %%%%%
+\title{ここに論文タイトルを記入}  % タイトル
+\author{高専 太郎}               % 報告者（自分の名前）
+\adviser{指導 教員}              % 指導教員名
+\date{2025年2月3日}              % 提出日
+\year{6}                        % 令和○年度
+
+%%%%% 論文要旨 (Abstract) %%%%%
+\abstract{
+ここに論文要旨を記述してください（1ページ以内）。
+研究の背景、目的、方法、得られた結果、結論などを簡潔にまとめて記述します。
+読者が本文をすべて読まなくても、概要が把握できるように書くことが重要です。
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%--- 表紙・目次設定 ---
+\pagenumbering{roman} % ページ番号をローマ数字(i, ii...)に設定
+\maketitle            % 表紙と要旨の出力
+\setcounter{page}{1}  % ページ番号の初期化
+\tableofcontents      % 目次の出力
+
+%--- 本文開始 ---
+\chapter{序論}
+\pagenumbering{arabic} % ここからページ番号をアラビア数字(1, 2...)に設定
+% \setcounter{page}{1} % 必要であればここでページ番号を1にリセット
+
+ここに第1章の本文を記述します。
+研究の背景や目的について述べます。
+
+\chapter{実験方法（または理論）}
+ここに第2章の本文を記述します。
+図を入れる場合は以下のように書きます。
+
+% 図の挿入例
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[width=8cm]{fig1.png}
+%   \caption{図の説明}
+%   \label{fig:example}
+% \end{figure}
+
+\chapter{実験結果}
+実験や解析の結果を記述します。
+
+\chapter{考察}
+結果に対する考察を記述します。
+
+\chapter{結論}
+本研究のまとめと今後の課題などを記述します。
+
+%--- 謝辞 ---
+\chapter*{謝辞}
+\addcontentsline{toc}{chapter}{謝辞} % 目次に追加
+本研究を進めるにあたり、ご指導いただいた○○先生に深く感謝いたします。
+また、実験に協力してくれた○○君に感謝します。
+
+%--- 参考文献 ---
+\begin{thebibliography}{99}
+\addcontentsline{toc}{chapter}{参考文献} % 目次に追加
+
+% 参考文献の書き方例
+\bibitem{ref-1}
+著者名: ``文献タイトル'', 出版社, pp.xx-xx (発行年).
+
+\bibitem{ref-2}
+著者名: ``論文タイトル'', 学会誌名, Vol.xx, No.xx, pp.xx-xx (発行年).
+
+\end{thebibliography}
+
+%--- 付録 (必要な場合のみコメントアウトを外す) ---
+%\appendix
+%\chapter{付録データの詳細}
+%ここに付録などを記述します。
+
+\end{document}

@@ -1,0 +1,65 @@
+\documentclass{jreport}% 標準のクラスファイル
+\usepackage[dvipdfmx]{graphicx}% 図を取り込むための拡張パッケージ
+%以下の拡張パッケージは適宜必要に応じて使用のこと
+%\usepackage{amsmath,amssymb}%アメリカ数学学会拡張パッケージ
+%\usepackage{bm}%太字ベクトル表記に使う拡張パッケージ
+%\usepackage{wrapfig}
+%\usepackage{multirow}
+\usepackage{kcctd_paper}% 神戸高専卒論用のマクロ
+
+
+%%%%% 卒論タイトル等入力 %%%%%
+\title{タイトル}% 卒業論文のタイトル
+\author{○○ ○○}% 報告者
+\adviser{○○ ○○}% 指導教員
+\date{2025年2月3日}
+\year{6}% 和暦年度	
+
+%%%%% 論分要旨 %%%%%
+\abstract{
+表紙に続き，論文要旨 (1ページ) を付けること。論文要旨は，読者が論文全文を読まなくても，その論文に何が書いてあるかがわかるような内容でなければならない。
+よって，論文要旨では，研究の背景，目的，方法，結論などを簡潔にまとめて説明すること。
+}%
+%%%%%%%%%%%%%%%%%%%%
+\begin{document}%
+\pagenumbering{roman}% 本文のページ番号をローマン体に設定（削除しないこと）
+\maketitle% タイトルページの出力
+\setcounter{page}{1}% ページ番号初期化
+
+\tableofcontents %  目次出力
+
+%%%%% 本文 %%%%%
+\chapter{卒業論文の書き方}%
+\pagenumbering{arabic}% 目次のページ番号をアラビア数字に設定（第1章のchapter命令の後に付ける）
+% 以下から第1章の本文開始
+
+
+\chapter{論文の提出方法}
+
+\begin{enumerate}%
+\item 論文を提出する前に，論文が電子工学科所定の様式となっているか確認すること。
+\item 各自で誤字や脱字がないか確認した後に，卒研指導教員に論文の内容確認を依頼すること。
+\item 卒研指導教員の確認を終えた論文のPDFファイルを，締切までに担任の指定する方法で提出すること。(提出された論文は査読審査を行います。)
+\item 査読審査で論文の修正を指示された場合は，適宜修正を行うこと。
+\item 修正後の論文は，PDF形式の電子データに変換して，指定期日までに担任に指示された方法で提出するとともに，印刷を行い，電子工学科指定の様式で作成したA4フラットファイル (図~\ref{fig2}参照) に綴じて担当教員へ提出すること。この際，用紙の片面・両面は問わない。
+\end{enumerate}
+
+
+
+\chapter*{謝辞}
+\addcontentsline{toc}{chapter}{謝辞}
+
+
+\begin{thebibliography}{99}
+\addcontentsline{toc}{chapter}{参考文献}
+\bibitem{ref-1} 
+中島 利勝, 塚本 真也 : ``知的な科学・技術文章の書き方'', コロナ社, pp.51-200 (1996). 
+\end{thebibliography}
+
+
+%付録を付けるときは以下の記述を有効化
+%\appendix
+%\chapter{付録タイトル}
+
+
+\end{document}

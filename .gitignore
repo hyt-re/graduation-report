@@ -1,0 +1,12 @@
+# LaTeXの生成物を無視する設定
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.fls
+*.fdb_latexmk
+# PDFは完成品として残したい場合は上の *.pdf を消してください

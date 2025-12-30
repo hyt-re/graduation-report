@@ -1,10 +1,17 @@
-\documentclass{jreport}% 標準のクラスファイル
+\documentclass{ujreport}% 標準のクラスファイル
+\usepackage[utf8]{inputenc} % 文字コードをUTF-8に指定
+\usepackage[T1]{fontenc}    % 欧文フォントをT1に指定
 \usepackage[dvipdfmx]{graphicx}% 図を取り込むための拡張パッケージ
 %以下の拡張パッケージは適宜必要に応じて使用のこと
 %\usepackage{amsmath,amssymb}%アメリカ数学学会拡張パッケージ
 %\usepackage{bm}%太字ベクトル表記に使う拡張パッケージ
 %\usepackage{wrapfig}
 %\usepackage{multirow}
+
+\ifdefined\kanjiskip\else
+  \newskip\kanjiskip
+\fi
+
 \usepackage{kcctd_paper}% 神戸高専卒論用のマクロ
 
 
@@ -17,7 +24,7 @@
 
 %%%%% 論分要旨 %%%%%
 \abstract{
-表紙に続き，論文要旨 (1ページ) を付けること。論文要旨は，読者が論文全文を読まなくても，その論文に何が書いてあるかがわかるような内容でなければならない。
+表紙に続きあああ，論文要旨 (1ページ) を付けること。論文要旨は，読者が論文全文を読まなくても，その論文に何が書いてあるかがわかるような内容でなければならない。
 よって，論文要旨では，研究の背景，目的，方法，結論などを簡潔にまとめて説明すること。
 }%
 %%%%%%%%%%%%%%%%%%%%
